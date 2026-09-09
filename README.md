@@ -56,6 +56,21 @@ streamlit run app.py
 Then open the local URL Streamlit prints (usually `http://localhost:8501`), and
 either log in with the demo account above or sign up for a new one.
 
+## Deploying on Streamlit Community Cloud
+
+1. Push the project to GitHub, including `app.py`, `database.py`, `analytics.py`,
+   `auth.py`, and `pyproject.toml`.
+2. Open [Streamlit Community Cloud](https://share.streamlit.io/) and sign in with GitHub.
+3. Select **Create app**, then choose this repository, the `main` branch, and
+  `app.py` as the main file.
+4. Select **Deploy**. The app URL will be generated after the build completes.
+
+This app currently uses SQLite (`expense_tracker.db`). Streamlit Community Cloud
+can run it, but its local filesystem is not a durable production database: data
+may be lost when the app is restarted or redeployed. For persistent hosted data,
+move the database layer to PostgreSQL before relying on the deployment for real
+records.
+
 ## How it works
 
 ```
